@@ -2,7 +2,7 @@ package com.infinitumcode.hackernews.data.model.remote
 
 import com.google.gson.annotations.SerializedName
 
-data class Hit(
+data class HitDto(
     @SerializedName("story_id")
     val storyId: Long,
     @SerializedName("story_title")

@@ -1,30 +1,28 @@
 package com.infinitumcode.hackernews.ui.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.infinitumcode.hackernews.R
+import com.infinitumcode.hackernews.databinding.FragmentMainBinding
+import com.infinitumcode.hackernews.utils.DEFAULT_QUERY
+import com.wada811.databinding.dataBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : Fragment() {
+class MainFragment : Fragment(R.layout.fragment_main) {
 
-    companion object {
-        fun newInstance() = MainFragment()
-    }
-
-    private lateinit var viewModel: MainViewModel
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
-    }
+    private val viewModel: MainViewModel by viewModel()
+    private val binding: FragmentMainBinding by dataBinding()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+        obsHits()
+    }
+
+    private fun obsHits() {
+        viewModel.getHitsByDate(DEFAULT_QUERY).observe(viewLifecycleOwner, {
+            Log.e("TAG", "$it")
+        })
     }
 
 }

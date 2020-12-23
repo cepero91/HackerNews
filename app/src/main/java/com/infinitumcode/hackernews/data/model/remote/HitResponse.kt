@@ -14,5 +14,5 @@ data class HitResponse(
     @SerializedName("query")
     val query: String,
     @SerializedName("hits")
-    val hits: List<Hit> = listOf()
+    val hitDtos: List<HitDto> = listOf()
 )
