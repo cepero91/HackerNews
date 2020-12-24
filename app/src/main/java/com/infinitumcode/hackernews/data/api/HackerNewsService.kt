@@ -7,6 +7,6 @@ import retrofit2.http.Query
 interface HackerNewsService {
 
     @GET("search_by_date")
-    suspend fun searchByDate(@Query("page") page: Int, @Query("query") query: String): HitResponse
+    suspend fun searchByDate(@Query("query") query: String, @Query("page") page: Int): HitResponse
 
 }

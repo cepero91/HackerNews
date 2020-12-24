@@ -7,7 +7,8 @@ import org.koin.dsl.module
 val repositoryModule = module {
     factory<HackerNewsRepository> {
         HackerNewsRepositoryImpl(
-            hackerNewsDataSource = get(),
+            hackerNewsLocalDataSource = get(),
+            hackerNewsRemoteDataSource = get(),
             mapHitEntityToDomain = get()
         )
     }

@@ -6,11 +6,16 @@
         <variable
             name="model"
             type="com.infinitumcode.hackernews.ui.main.model.HitItem" />
+
+        <variable
+            name="listener"
+            type="com.infinitumcode.hackernews.ui.main.handler.HitItemListener" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{()->listener.onHitClick(model)}"
         android:orientation="vertical"
         android:padding="16dp">
 

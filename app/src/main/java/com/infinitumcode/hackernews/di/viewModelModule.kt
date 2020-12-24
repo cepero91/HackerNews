@@ -6,6 +6,6 @@ import org.koin.dsl.module
 
 val viewModelModule = module {
     viewModel {
-        MainViewModel(searchByDateUseCase = get(), mapHitToItem = get())
+        MainViewModel(localListHitUseCase = get(), removeHitUseCase = get(), mapHitToItem = get())
     }
 }

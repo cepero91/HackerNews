@@ -8,8 +8,8 @@ import com.infinitumcode.hackernews.utils.DateUtil
 class MapHitDtoToEntity : Mapper<HitDto, HitEntity> {
     override fun map(from: HitDto): HitEntity {
         return HitEntity(
-            from.storyId,
-            from.storyTitle,
+            from.objectID,
+            from.storyTitle ?: from.title,
             from.author,
             DateUtil.fromStringToDateTime(from.createdAt),
             from.storyUrl
@@ -19,7 +19,13 @@ class MapHitDtoToEntity : Mapper<HitDto, HitEntity> {
 
 class MapHitEntityToDomain : Mapper<HitEntity, Hit> {
     override fun map(from: HitEntity): Hit {
-        return Hit(from.storyId, from.storyTitle, from.author, from.createdAt, from.storyUrl)
+        return Hit(
+            from.objectId,
+            from.storyTitle,
+            from.author,
+            from.createdAt,
+            from.storyUrl
+        )
     }
 
 }

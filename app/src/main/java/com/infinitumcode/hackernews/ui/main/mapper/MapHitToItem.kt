@@ -6,6 +6,12 @@ import com.infinitumcode.hackernews.ui.main.model.HitItem
 
 class MapHitToItem : Mapper<Hit, HitItem> {
     override fun map(from: Hit): HitItem {
-        return HitItem(from.storyId, from.storyTitle, from.author, from.createdAt, from.storyUrl)
+        return HitItem(
+            from.objectId,
+            from.storyTitle ?: "",
+            from.author,
+            from.createdAt,
+            from.storyUrl ?: ""
+        )
     }
 }

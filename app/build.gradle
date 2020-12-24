@@ -50,7 +50,7 @@ ext {
     room_version = "2.3.0-alpha04"
     swipe_version = "1.1.0"
     databinding_ktx_version = "5.0.0"
-    paging_version = "3.0.0-alpha11"
+    paging_version = "3.0.0-alpha02"
     joda_time_version = "2.10.8"
     drawer_version = "1.1.1"
     timeago_version = "4.0.3"

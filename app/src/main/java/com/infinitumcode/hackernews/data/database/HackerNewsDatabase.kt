@@ -8,15 +8,17 @@ import androidx.room.TypeConverters
 import com.infinitumcode.hackernews.data.database.converter.DateTypeConverter
 import com.infinitumcode.hackernews.data.model.local.HitEntity
 import com.infinitumcode.hackernews.data.model.local.RemoteKeysEntity
+import com.infinitumcode.hackernews.data.model.local.RemovedHitEntity
 import com.infinitumcode.hackernews.utils.DATABASE_NAME
 
 @Database(
-    entities = [HitEntity::class, RemoteKeysEntity::class], version = 1, exportSchema = false
+    entities = [HitEntity::class, RemoteKeysEntity::class, RemovedHitEntity::class], version = 1, exportSchema = false
 )
 @TypeConverters(DateTypeConverter::class)
 abstract class HackerNewsDatabase : RoomDatabase() {
     abstract fun hackerNewsDao(): HackerNewsDao
     abstract fun remoteKeysDao(): RemoteKeysDao
+    abstract fun removedHitDao(): RemovedHitDao
 
     companion object {
         @Volatile

@@ -19,6 +19,9 @@ interface HackerNewsDao {
     @Query("DELETE FROM Hit")
     suspend fun clearAllHits()
 
-    @Query("DELETE FROM Hit WHERE storyId = :storyId")
-    suspend fun deleteHit(storyId: String)
+    @Query("DELETE FROM Hit WHERE objectId = :hitObjectId")
+    suspend fun deleteHit(hitObjectId: String): Int
+
+    @Query("SELECT COUNT(*) FROM Hit")
+    fun getHitCount(): Int
 }

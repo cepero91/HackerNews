@@ -8,12 +8,13 @@ import com.infinitumcode.hackernews.databinding.ItemHitBinding
 import com.infinitumcode.hackernews.ui.main.handler.HitItemListener
 import com.infinitumcode.hackernews.ui.main.model.HitItem
 
-class HitItemViewHolder(private val binding: ItemHitBinding) :
+class HitItemViewHolder(val binding: ItemHitBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     fun bind(hitItem: HitItem, listener: HitItemListener?) {
         with(binding) {
-            model = hitItem
+            this.model = hitItem
+            this.listener = listener
             executePendingBindings()
         }
     }

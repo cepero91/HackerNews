@@ -5,14 +5,14 @@ import org.joda.time.DateTime
 import java.lang.StringBuilder
 
 data class HitItem(
-    val storyId: Long,
+    val objectId: String,
     val storyTitle: String,
     val author: String,
     val createdAt: DateTime,
     val storyUrl: String
 ) {
     fun humanAuthorAndCreatedAtDate(): String {
-        return StringBuilder().append(author).append("-").append(TimeAgo.using(createdAt.millis))
+        return StringBuilder().append(author).append(" - ").append(TimeAgo.using(createdAt.millis))
             .toString()
     }
 }

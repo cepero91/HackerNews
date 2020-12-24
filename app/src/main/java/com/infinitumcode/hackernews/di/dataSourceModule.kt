@@ -1,15 +1,21 @@
 package com.infinitumcode.hackernews.di
 
-import com.infinitumcode.hackernews.data.datasource.HackerNewsDataSource
-import com.infinitumcode.hackernews.data.datasource.HackerNewsDataSourceImpl
+import com.infinitumcode.hackernews.data.datasource.HackerNewsLocalDataSource
+import com.infinitumcode.hackernews.data.datasource.HackerNewsLocalDataSourceImpl
+import com.infinitumcode.hackernews.data.datasource.HackerNewsRemoteDataSource
+import com.infinitumcode.hackernews.data.datasource.HackerNewsRemoteDataSourceImpl
 import org.koin.dsl.module
 
 val dataSourceModule = module {
-    factory<HackerNewsDataSource> {
-        HackerNewsDataSourceImpl(
-            service = get(),
-            database = get(),
-            mapHitDtoToEntity = get()
+    factory<HackerNewsLocalDataSource> {
+        HackerNewsLocalDataSourceImpl(
+            database = get()
+        )
+    }
+
+    factory<HackerNewsRemoteDataSource> {
+        HackerNewsRemoteDataSourceImpl(
+            service = get()
         )
     }
 }
