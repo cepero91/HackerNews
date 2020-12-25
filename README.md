@@ -15,7 +15,7 @@
 ### Problem to solve
 
 1. Get data from https://hn.algolia.com/api/v1/search_by_date?query=android and cache it for loading when device is offline
-2. Ability to delete an article and prevent it from being reinserted when the data has been refreshed
+2. Ability to delete an article and prevent it from being reinserted when the data has been refreshed (Swipe to Delete)
 3. Pull to Refresh
 4. View the article on a webview (within the app)
 
@@ -30,3 +30,13 @@
 7. Navigation Component
 8. LeakCanary
 9. Material Design, Lottie and Toasty (UI)
+
+### Screenshot
+<table>
+  <tr>
+    <td><img src="https://github.com/cepero91/MyMovieApp/blob/master/screenshot/splash.jpg" alt="splash" width="200"></td>
+    <td><img src="https://github.com/cepero91/MyMovieApp/blob/master/screenshot/trending_empty.jpg" alt="splash" width="200"></td>
+    <td><img src="https://github.com/cepero91/MyMovieApp/blob/master/screenshot/trending_empty.jpg" alt="splash" width="200"></td>
+    <td><img src="https://github.com/cepero91/MyMovieApp/blob/master/screenshot/trending_empty.jpg" alt="splash" width="200"></td>
+  </tr>
+</table>
