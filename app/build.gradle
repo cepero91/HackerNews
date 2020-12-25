@@ -50,10 +50,11 @@ ext {
     room_version = "2.3.0-alpha04"
     swipe_version = "1.1.0"
     databinding_ktx_version = "5.0.0"
-    paging_version = "3.0.0-alpha02"
+    paging_version = "3.0.0-alpha02" //latest version have some bugs on pagingData.map
     joda_time_version = "2.10.8"
     drawer_version = "1.1.1"
     timeago_version = "4.0.3"
+    lottie_version = "3.5.0"
 }
 
 dependencies {
@@ -81,6 +82,7 @@ dependencies {
 
     //Room
     implementation "androidx.room:room-runtime:$room_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     kapt "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
     implementation "androidx.room:room-ktx:$room_version"
 
@@ -97,6 +99,15 @@ dependencies {
     // Date
     implementation "joda-time:joda-time:$joda_time_version"
     implementation "com.github.marlonlom:timeago:$timeago_version"
+
+    // Navigation
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.2'
+
+    // Lottie
+    implementation "com.airbnb.android:lottie:$lottie_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

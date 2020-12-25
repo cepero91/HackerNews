@@ -21,8 +21,8 @@ class MainViewModel(
     private val _itemRemoved: SingleLiveEvent<Boolean> by lazy { SingleLiveEvent() }
     val itemRemoved get() = _itemRemoved
 
-    fun allHits(): LiveData<PagingData<HitItem>> {
-        return localListHitUseCase.invoke(DEFAULT_QUERY).map { pagingData ->
+    val allHits: LiveData<PagingData<HitItem>> by lazy {
+        localListHitUseCase.invoke(DEFAULT_QUERY).map { pagingData ->
             pagingData.map {
                 mapHitToItem.map(it)
             }

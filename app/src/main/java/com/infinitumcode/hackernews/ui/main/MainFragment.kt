@@ -3,20 +3,23 @@ package com.infinitumcode.hackernews.ui.main
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.example.jll.hackernewsofflinefirst.other.SwipeToDeleteHandler
 import com.infinitumcode.hackernews.R
 import com.infinitumcode.hackernews.databinding.FragmentMainBinding
 import com.infinitumcode.hackernews.ui.main.adapter.HitListAdapter
 import com.infinitumcode.hackernews.ui.main.adapter.HitLoadStateAdapter
 import com.infinitumcode.hackernews.ui.main.handler.HitItemListener
+import com.infinitumcode.hackernews.ui.main.handler.SwipeToDeleteCallback
 import com.infinitumcode.hackernews.ui.main.model.HitItem
 import com.infinitumcode.hackernews.ui.main.viewholder.HitItemViewHolder
+import com.infinitumcode.hackernews.utils.EXTRA_STORY_ID
 import com.wada811.databinding.dataBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -62,15 +65,12 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
         adapter.addLoadStateListener { loadState ->
 
             if (loadState.refresh is LoadState.Loading) {
-                // Show ProgressBar
                 binding.srlRefresh.isRefreshing = true
             } else {
-                // Hide ProgressBar
                 binding.srlRefresh.isRefreshing = false
 
-                // If we have an error, show a toast
-                val errorState = when {
-                    loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+                val errorState = when (loadState.append) {
+                    is LoadState.Error -> loadState.append as LoadState.Error
                     else -> null
                 }
                 errorState?.let {
@@ -81,7 +81,7 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
     }
 
     private fun initSwipeToDeleteHandler() {
-        val swipeToDeleteHandler = object : SwipeToDeleteHandler(requireContext()) {
+        val swipeToDeleteHandler = object : SwipeToDeleteCallback(requireContext()) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, i: Int) {
                 val item = (viewHolder as HitItemViewHolder).binding.model!!
                 viewModel.removeHitItem(item.objectId)
@@ -93,9 +93,8 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
     }
 
 
-
     private fun obsHits() {
-        viewModel.allHits().observe(viewLifecycleOwner, {
+        viewModel.allHits.observe(viewLifecycleOwner, {
             adapter.submitData(viewLifecycleOwner.lifecycle, it)
         })
     }
@@ -109,7 +108,11 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
     }
 
     override fun onHitClick(item: HitItem) {
-
+        findNavController().navigate(
+            R.id.action_nav_main_to_nav_detail, bundleOf(
+                EXTRA_STORY_ID to item.storyUrl
+            )
+        )
     }
 
     override fun onRefresh() {
