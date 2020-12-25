@@ -59,6 +59,6 @@ I know that better solutions can always be found, so feel free to give some crit
 <p align="center">
   <h3 align="center">"It is not enough for code to work."</h3>
   <p align="center">
-    Uncle Bob
+    Robert C. Martin
   </p>
 </p>
