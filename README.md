@@ -18,3 +18,15 @@
 2. Ability to delete an article and prevent it from being reinserted when the data has been refreshed
 3. Pull to Refresh
 4. View the article on a webview (within the app)
+
+### Third Party Libraries and Jetpack Component used to solve the problems
+
+1. ViewModel & LiveData
+2. Coroutine Flow
+3. Paging3 (RemoteMediator for offline-first approach)
+4. Koin (Dependency Injection)
+5. Room
+6. Retrofit
+7. Navigation Component
+8. LeakCanary
+9. Material Design, Lottie and Toasty (UI)
