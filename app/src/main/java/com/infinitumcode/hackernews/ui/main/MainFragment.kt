@@ -66,14 +66,14 @@ class MainFragment :
 
     private fun initAdapterLoadingState() {
         adapter.addLoadStateListener { loadState ->
-            Log.e("LOAD STATE", "$loadState.")
             if (loadState.refresh is LoadState.Loading) {
                 binding.srlRefresh.isRefreshing = true
             } else {
                 binding.srlRefresh.isRefreshing = false
 
-                val errorState = when (loadState.append) {
-                    is LoadState.Error -> loadState.append as LoadState.Error
+                val errorState = when {
+                    loadState.append is LoadState.Error -> loadState.append as LoadState.Error
+                    loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
                     else -> null
                 }
                 errorState?.let {
@@ -127,5 +127,11 @@ class MainFragment :
 
     override fun onRefresh() {
         adapter.refresh()
+    }
+
+    override fun onDestroyView() {
+        if (binding.rvHits.adapter != null)
+            binding.rvHits.adapter = null
+        super.onDestroyView()
     }
 }

@@ -1,6 +1,5 @@
 package com.infinitumcode.hackernews.data.paging
 
-import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -24,7 +23,6 @@ class HackerNewRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, HitEntity>
     ): MediatorResult {
-        Log.e("REMOTE MEDIATOR", "$loadType")
         val page = when (loadType) {
             LoadType.REFRESH -> {
                 null
