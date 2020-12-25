@@ -51,3 +51,14 @@
     </td>
   </tr>
 </table>
+
+### Aditional Note
+
+I know that better solutions can always be found, so feel free to give some criticism to improve the current one.
+
+<p align="center">
+  <h3 align="center">"It is not enough for code to work."</h3>
+  <p align="center">
+    Uncle Bob
+  </p>
+</p>
