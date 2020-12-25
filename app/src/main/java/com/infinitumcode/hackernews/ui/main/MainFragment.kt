@@ -20,6 +20,8 @@ import com.infinitumcode.hackernews.ui.main.handler.SwipeToDeleteCallback
 import com.infinitumcode.hackernews.ui.main.model.HitItem
 import com.infinitumcode.hackernews.ui.main.viewholder.HitItemViewHolder
 import com.infinitumcode.hackernews.utils.EXTRA_STORY_ID
+import com.infinitumcode.hackernews.utils.showErrorMessage
+import com.infinitumcode.hackernews.utils.showWarningMessage
 import com.wada811.databinding.dataBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -63,7 +65,7 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
 
     private fun initAdapterLoadingState() {
         adapter.addLoadStateListener { loadState ->
-
+            Log.e("LOAD STATE", "$loadState.")
             if (loadState.refresh is LoadState.Loading) {
                 binding.srlRefresh.isRefreshing = true
             } else {
@@ -74,7 +76,9 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
                     else -> null
                 }
                 errorState?.let {
-                    Toast.makeText(requireContext(), it.error.message, Toast.LENGTH_LONG).show()
+                    requireContext().showErrorMessage(
+                        it.error.message ?: getString(R.string.generic_error)
+                    )
                 }
             }
         }
@@ -87,7 +91,6 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
                 viewModel.removeHitItem(item.objectId)
             }
         }
-
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteHandler)
         itemTouchHelper.attachToRecyclerView(binding.rvHits)
     }
@@ -102,7 +105,7 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
     private fun obsItemRemoved() {
         viewModel.itemRemoved.observe(viewLifecycleOwner, {
             if (it) {
-                Toast.makeText(requireContext(), "Item Removed", Toast.LENGTH_SHORT).show()
+                requireContext().showWarningMessage(getString(R.string.item_removed_message))
             }
         })
     }

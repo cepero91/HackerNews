@@ -14,6 +14,7 @@
         <action
             android:id="@+id/action_nav_splash_to_nav_main"
             app:destination="@id/nav_main"
+            app:enterAnim="@android:anim/slide_in_left"
             app:popUpTo="@id/main_navigation"
             app:popUpToInclusive="true" />
     </fragment>
@@ -25,7 +26,8 @@
         tools:layout="@layout/fragment_main" >
         <action
             android:id="@+id/action_nav_main_to_nav_detail"
-            app:destination="@id/nav_detail" />
+            app:destination="@id/nav_detail"
+            app:enterAnim="@android:anim/slide_in_left" />
     </fragment>
 
     <fragment

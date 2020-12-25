@@ -5,7 +5,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="#EEEEEE">
 
         <TextView
             android:id="@+id/tv_error_message"
@@ -15,7 +16,8 @@
             android:maxLines="2"
             android:text="@string/sorry_no_internet"
             android:textSize="16sp"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_medium"/>
 
         <ProgressBar
             android:id="@+id/pb_load_state"
@@ -30,7 +32,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.Button.TextButton"
-            android:text="retry"/>
+            android:text="@string/retry"
+            android:fontFamily="@font/montserrat_medium"/>
 
 
     </LinearLayout>

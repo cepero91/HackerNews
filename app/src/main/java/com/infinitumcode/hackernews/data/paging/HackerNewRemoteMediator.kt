@@ -1,5 +1,6 @@
 package com.infinitumcode.hackernews.data.paging
 
+import android.util.Log
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
@@ -24,7 +25,7 @@ class HackerNewRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, HitEntity>
     ): MediatorResult {
-
+        Log.e("REMOTE MEDIATOR", "$loadType")
         val page = when (loadType) {
             LoadType.REFRESH -> {
                 null
@@ -98,23 +99,5 @@ class HackerNewRemoteMediator(
             ?.let {
                 localDataSource.remoteKeyById(it.objectId)
             }
-    }
-
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, HitEntity>): RemoteKeysEntity? {
-        return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
-            ?.let {
-                localDataSource.remoteKeyById(it.objectId)
-            }
-    }
-
-    private suspend fun getRemoteKeyClosestToCurrentPosition(
-        state: PagingState<Int, HitEntity>
-    ): RemoteKeysEntity? {
-
-        return state.anchorPosition?.let { position ->
-            state.closestItemToPosition(position)?.objectId?.let { objectId ->
-                localDataSource.remoteKeyById(objectId)
-            }
-        }
     }
 }

@@ -1,7 +1,9 @@
 package com.infinitumcode.hackernews
 
 import android.app.Application
+import androidx.core.content.res.ResourcesCompat
 import com.infinitumcode.hackernews.di.*
+import es.dmoral.toasty.Toasty
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -23,6 +25,16 @@ class HackerNewsApp : Application() {
                 viewModelModule
             )
         }
+        setupToastyParams()
+    }
+
+    private fun setupToastyParams() {
+        Toasty.Config.getInstance().allowQueue(false).setToastTypeface(
+            ResourcesCompat.getFont(
+                applicationContext,
+                R.font.montserrat_regular
+            )!!
+        ).apply()
     }
 
 }

@@ -55,6 +55,7 @@ ext {
     drawer_version = "1.1.1"
     timeago_version = "4.0.3"
     lottie_version = "3.5.0"
+    toasty_version = "1.5.0"
 }
 
 dependencies {
@@ -108,6 +109,9 @@ dependencies {
 
     // Lottie
     implementation "com.airbnb.android:lottie:$lottie_version"
+
+    // Toast
+    implementation "com.github.GrenderG:Toasty:$toasty_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

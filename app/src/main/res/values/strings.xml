@@ -4,4 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hacker_news">Hacker News</string>
+    <string name="retry">retry</string>
+    <string name="generic_error">Oopss!! something\'s wrong</string>
+    <string name="item_removed_message">Item Removed!!</string>
 </resources>
