@@ -34,7 +34,9 @@
 ### Screenshot
 <table>
   <tr>
-    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hacker_new_splash.png" alt="splash" width="200"></td>
+    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hacker_new_splash.png" alt="splash" width="200">
+      <h3 align="center">Hacker News</h3>
+    </td>
     <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_list.png" alt="splash" width="200"></td>
     <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_detail.png" alt="splash" width="200"></td>
     <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/remove_hit.png" alt="splash" width="200"></td>
