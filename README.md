@@ -35,11 +35,19 @@
 <table>
   <tr>
     <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hacker_new_splash.png" alt="splash" width="200">
-      <h4 align="center">Hacker News</h3>
+      <h5 align="center">Splash</h3>
     </td>
-    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_list.png" alt="splash" width="200"></td>
-    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_detail.png" alt="splash" width="200"></td>
-    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/remove_hit.png" alt="splash" width="200"></td>
-    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/no_internet_error.png" alt="splash" width="200"></td>
+    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_list.png" alt="splash" width="200">
+      <h5 align="center">Listing</h3>
+    </td>
+    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/hit_detail.png" alt="splash" width="200">
+      <h5 align="center">Detail</h3>
+    </td>
+    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/remove_hit.png" alt="splash" width="200">
+      <h5 align="center">Swipe To Delete</h3>
+    </td>
+    <td><img src="https://github.com/cepero91/HackerNews/blob/master/screenshots/no_internet_error.png" alt="splash" width="200">
+      <h5 align="center">Internet Error</h3>
+    </td>
   </tr>
 </table>
