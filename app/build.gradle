@@ -92,9 +92,6 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
-    //Swipe left and right
-    implementation "ru.rambler.android:swipe-layout:$swipe_version"
-
     //Databinding-ktx
     implementation "com.github.wada811:DataBinding-ktx:$databinding_ktx_version"
 
