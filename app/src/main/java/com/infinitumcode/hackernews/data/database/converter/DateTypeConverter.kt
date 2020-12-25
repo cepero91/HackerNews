@@ -2,7 +2,6 @@ package com.infinitumcode.hackernews.data.database.converter
 
 import androidx.room.TypeConverter
 import org.joda.time.DateTime
-import java.util.Date
 
 class DateTypeConverter {
     @TypeConverter

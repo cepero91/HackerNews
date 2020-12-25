@@ -56,6 +56,7 @@ ext {
     timeago_version = "4.0.3"
     lottie_version = "3.5.0"
     toasty_version = "1.5.0"
+    leak_version = "2.4"
 }
 
 dependencies {
@@ -112,6 +113,9 @@ dependencies {
 
     // Toast
     implementation "com.github.GrenderG:Toasty:$toasty_version"
+
+    //Leak Canary
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_version"
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

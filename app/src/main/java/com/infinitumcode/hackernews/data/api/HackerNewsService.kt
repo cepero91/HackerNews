@@ -8,5 +8,4 @@ interface HackerNewsService {
 
     @GET("search_by_date")
     suspend fun searchByDate(@Query("query") query: String, @Query("page") page: Int): HitResponse
-
 }

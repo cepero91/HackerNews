@@ -18,7 +18,7 @@ class LoadStateViewHolder(
         binding.btnRetry.setOnClickListener { retry.invoke() }
     }
 
-    fun bind(loadState: LoadState){
+    fun bind(loadState: LoadState) {
         if (loadState is LoadState.Error) {
             binding.tvErrorMessage.text = loadState.error.localizedMessage
         }

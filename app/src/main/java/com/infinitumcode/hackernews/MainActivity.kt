@@ -1,7 +1,7 @@
 package com.infinitumcode.hackernews
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -10,10 +10,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.infinitumcode.hackernews.databinding.ActivityMainBinding
-import com.infinitumcode.hackernews.ui.main.MainFragment
 import com.wada811.databinding.dataBinding
 
-class MainActivity : AppCompatActivity(R.layout.activity_main),
+class MainActivity :
+    AppCompatActivity(R.layout.activity_main),
     NavController.OnDestinationChangedListener {
 
     private val binding: ActivityMainBinding by dataBinding()
@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main),
         destination: NavDestination,
         arguments: Bundle?
     ) {
-        when(destination.id){
+        when (destination.id) {
             R.id.nav_splash -> hideAllBars()
             else -> showAllBars()
         }

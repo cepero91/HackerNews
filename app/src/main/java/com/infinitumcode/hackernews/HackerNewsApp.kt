@@ -2,7 +2,13 @@ package com.infinitumcode.hackernews
 
 import android.app.Application
 import androidx.core.content.res.ResourcesCompat
-import com.infinitumcode.hackernews.di.*
+import com.infinitumcode.hackernews.di.dataSourceModule
+import com.infinitumcode.hackernews.di.domainModule
+import com.infinitumcode.hackernews.di.localStorageModule
+import com.infinitumcode.hackernews.di.mapperModule
+import com.infinitumcode.hackernews.di.networkModule
+import com.infinitumcode.hackernews.di.repositoryModule
+import com.infinitumcode.hackernews.di.viewModelModule
 import es.dmoral.toasty.Toasty
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -36,5 +42,4 @@ class HackerNewsApp : Application() {
             )!!
         ).apply()
     }
-
 }

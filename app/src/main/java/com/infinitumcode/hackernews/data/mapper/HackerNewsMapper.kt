@@ -27,5 +27,4 @@ class MapHitEntityToDomain : Mapper<HitEntity, Hit> {
             from.storyUrl
         )
     }
-
 }

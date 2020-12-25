@@ -2,7 +2,6 @@ package com.infinitumcode.hackernews.ui.main.adapter
 
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.infinitumcode.hackernews.ui.main.handler.HitItemListener

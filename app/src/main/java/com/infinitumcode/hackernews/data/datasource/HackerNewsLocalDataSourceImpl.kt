@@ -1,16 +1,11 @@
 package com.infinitumcode.hackernews.data.datasource
 
-import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import androidx.paging.PagingData
 import androidx.paging.PagingSource
 import androidx.room.withTransaction
 import com.infinitumcode.hackernews.data.database.HackerNewsDatabase
 import com.infinitumcode.hackernews.data.model.local.HitEntity
 import com.infinitumcode.hackernews.data.model.local.RemoteKeysEntity
 import com.infinitumcode.hackernews.data.model.local.RemovedHitEntity
-import com.infinitumcode.hackernews.utils.HIT_PER_PAGE
-import kotlinx.coroutines.flow.Flow
 
 class HackerNewsLocalDataSourceImpl(
     private val database: HackerNewsDatabase,
@@ -56,10 +51,8 @@ class HackerNewsLocalDataSourceImpl(
         database.hackerNewsDao().insertAll(hits)
     }
 
-
     override suspend fun removeItemById(hitObjectId: String): Boolean {
         database.removedHitDao().insert(RemovedHitEntity(hitObjectId))
         return database.hackerNewsDao().deleteHit(hitObjectId) == 1
-
     }
 }

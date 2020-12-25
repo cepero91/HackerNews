@@ -13,7 +13,6 @@ import com.infinitumcode.hackernews.data.model.local.RemovedHitEntity
 import com.infinitumcode.hackernews.data.wrapper.Resource
 import com.infinitumcode.hackernews.utils.DEFAULT_QUERY
 import com.infinitumcode.hackernews.utils.DateUtil
-import java.io.InvalidObjectException
 
 @OptIn(ExperimentalPagingApi::class)
 class HackerNewRemoteMediator(
@@ -65,8 +64,10 @@ class HackerNewRemoteMediator(
                     val hitEntities = mutableListOf<HitEntity>()
                     hitsDto.filter { hitDto ->
                         val title = hitDto.storyTitle ?: hitDto.title ?: ""
-                        (removedHits.contains(RemovedHitEntity(hitDto.objectID))
-                            .not() && title.isNotEmpty() && hitDto.storyUrl.isNullOrEmpty().not())
+                        (
+                            removedHits.contains(RemovedHitEntity(hitDto.objectID))
+                                .not() && title.isNotEmpty() && hitDto.storyUrl.isNullOrEmpty().not()
+                            )
                     }.forEach { hitsDtoMap ->
                         remotedKeyEntities.add(
                             RemoteKeysEntity(

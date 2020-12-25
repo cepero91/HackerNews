@@ -1,10 +1,13 @@
 package com.infinitumcode.hackernews.ui.main
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.infinitumcode.hackernews.domain.usecase.RemoveHitUseCase
 import com.infinitumcode.hackernews.domain.usecase.LocalListHitUseCase
+import com.infinitumcode.hackernews.domain.usecase.RemoveHitUseCase
 import com.infinitumcode.hackernews.ui.main.mapper.MapHitToItem
 import com.infinitumcode.hackernews.ui.main.model.HitItem
 import com.infinitumcode.hackernews.utils.DEFAULT_QUERY
@@ -34,5 +37,4 @@ class MainViewModel(
             _itemRemoved.postValue(removeHitUseCase.invoke(hitObjectId))
         }
     }
-
 }

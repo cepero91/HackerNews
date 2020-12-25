@@ -2,14 +2,10 @@ package com.infinitumcode.hackernews.ui.detail
 
 import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import com.infinitumcode.hackernews.R
 import com.infinitumcode.hackernews.databinding.FragmentDetailHitBinding
 import com.infinitumcode.hackernews.utils.EXTRA_STORY_ID
@@ -35,7 +31,7 @@ class DetailHitFragment : Fragment(R.layout.fragment_detail_hit) {
     private fun initUI() {
         with(binding) {
             wvHitDetail.settings.javaScriptEnabled = true
-            wvHitDetail.webViewClient = object : WebViewClient(){
+            wvHitDetail.webViewClient = object : WebViewClient() {
                 override fun onPageStarted(view: WebView?, url: String?, favicon: Bitmap?) {
                     binding.pbLoading.isVisible = true
                     super.onPageStarted(view, url, favicon)
@@ -46,11 +42,10 @@ class DetailHitFragment : Fragment(R.layout.fragment_detail_hit) {
                     super.onPageFinished(view, url)
                 }
             }
-           storyUrl?.let {
-               wvHitDetail.loadUrl(it)
-           }
+            storyUrl?.let {
+                wvHitDetail.loadUrl(it)
+            }
             executePendingBindings()
         }
     }
-
 }

@@ -11,7 +11,6 @@ class HackerNewsRemoteDataSourceImpl(
 ) : HackerNewsRemoteDataSource, RemoteCallHelper() {
 
     override suspend fun searchByDate(query: String?, page: Int): Resource<HitResponse> {
-        return safeApiCall { service.searchByDate(query?: DEFAULT_QUERY, page) }
+        return safeApiCall { service.searchByDate(query ?: DEFAULT_QUERY, page) }
     }
-
 }

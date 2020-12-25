@@ -2,7 +2,6 @@ package com.infinitumcode.hackernews.ui.main
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -25,7 +24,9 @@ import com.infinitumcode.hackernews.utils.showWarningMessage
 import com.wada811.databinding.dataBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
+class MainFragment :
+    Fragment(R.layout.fragment_main),
+    HitItemListener,
     SwipeRefreshLayout.OnRefreshListener {
 
     private val viewModel: MainViewModel by viewModel()
@@ -95,24 +96,30 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
         itemTouchHelper.attachToRecyclerView(binding.rvHits)
     }
 
-
     private fun obsHits() {
-        viewModel.allHits.observe(viewLifecycleOwner, {
-            adapter.submitData(viewLifecycleOwner.lifecycle, it)
-        })
+        viewModel.allHits.observe(
+            viewLifecycleOwner,
+            {
+                adapter.submitData(viewLifecycleOwner.lifecycle, it)
+            }
+        )
     }
 
     private fun obsItemRemoved() {
-        viewModel.itemRemoved.observe(viewLifecycleOwner, {
-            if (it) {
-                requireContext().showWarningMessage(getString(R.string.item_removed_message))
+        viewModel.itemRemoved.observe(
+            viewLifecycleOwner,
+            {
+                if (it) {
+                    requireContext().showWarningMessage(getString(R.string.item_removed_message))
+                }
             }
-        })
+        )
     }
 
     override fun onHitClick(item: HitItem) {
         findNavController().navigate(
-            R.id.action_nav_main_to_nav_detail, bundleOf(
+            R.id.action_nav_main_to_nav_detail,
+            bundleOf(
                 EXTRA_STORY_ID to item.storyUrl
             )
         )
@@ -121,5 +128,4 @@ class MainFragment : Fragment(R.layout.fragment_main), HitItemListener,
     override fun onRefresh() {
         adapter.refresh()
     }
-
 }
