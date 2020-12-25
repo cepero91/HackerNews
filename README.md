@@ -7,7 +7,7 @@
   </p>
 </p>
 <p align="center">
-  <a href="https://github.com/cepero91/MyMovieApp/raw/master/MovieApp-debug.apk">
+  <a href="https://github.com/cepero91/HackerNews/suites/1724168539/artifacts/32623510">
     Download
   </a>
 </p>
